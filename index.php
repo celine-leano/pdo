@@ -116,3 +116,16 @@ $statement->bindParam(':new', $new, PDO::PARAM_STR);
 
 // execute!
 $statement->execute();
+
+// define a query
+$sql = "DELETE FROM pets WHERE id = :id";
+
+// prepare the statement
+$statement = $dbh->prepare($sql);
+
+// bind the parameters
+$id = 1;
+$statement->bindParam(':id', $id, PDO::PARAM_INT);
+
+// execute!
+$statement->execute();
