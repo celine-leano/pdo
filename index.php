@@ -70,6 +70,19 @@ $statement->bindParam(':name', $name, PDO::PARAM_STR);
 $statement->bindParam(':color', $color, PDO::PARAM_STR);
 
 // execute, again!
+/*$statement->execute();
+$id = $dbh->lastInsertId();
+echo "<p>Pet $id inserted successfully.</p>";*/
+
+// bind the parameters
+$type = 'parrot';
+$name = 'Carrot';
+$color = 'rainbow';
+$statement->bindParam(':type', $type, PDO::PARAM_STR);
+$statement->bindParam(':name', $name, PDO::PARAM_STR);
+$statement->bindParam(':color', $color, PDO::PARAM_STR);
+
+// execute, again!
 $statement->execute();
 $id = $dbh->lastInsertId();
 echo "<p>Pet $id inserted successfully.</p>";
