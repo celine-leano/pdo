@@ -20,7 +20,8 @@ try {
 // display all owners in an HTML table
 echo "<table>";
 // define the query
-$sql = "SELECT * FROM petOwners";
+$sql = "SELECT * FROM pets, petOwners
+        WHERE pets.id = petOwners.petId OR petId IS NULL";
 
 // prepare the statement
 $statement = $dbh->prepare($sql);
@@ -31,6 +32,9 @@ $statement->execute();
 // process the result
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 foreach ($result as $row) {
-    echo "<tr><td>".$row['first']."</td>
-          <td>".$row['last']."</td></tr>";
+    echo "<tr>";
+    echo "<td>".$row['name']."</td>
+          <td>".$row['first']."</td>
+          <td>".$row['last']."</td>";
+    echo "</tr>";
 }
