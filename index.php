@@ -45,3 +45,5 @@ $statement->bindParam(':color', $color, PDO::PARAM_STR);
 
 // execute, again!
 $statement->execute();
+$id = $dbh->lastInsertId();
+echo "<p>Pet $id inserted succesfully.</p>";
